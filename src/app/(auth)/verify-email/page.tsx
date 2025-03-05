@@ -1,7 +1,7 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { verifyEmail } from './actions';
 import { CheckCircle2, XCircle } from 'lucide-react';
 import Link from 'next/link';
@@ -72,3 +72,7 @@ export default function VerifyEmailPage() {
     </div>
   );
 }
+
+VerifyEmailPage.getLayout = (page: React.ReactNode) => (
+  <Suspense fallback={<div>Loading...</div>}>{page}</Suspense>
+);

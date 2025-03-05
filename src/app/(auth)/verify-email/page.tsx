@@ -1,4 +1,4 @@
-'use client'; // Indicando que o componente é do lado do cliente
+'use client';
 
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -30,21 +30,16 @@ export default function VerifyEmailPage() {
     }
   }, [token, email]);
 
-  // O Suspense é necessário para garantir a renderização assíncrona do lado do cliente
-  if (status === 'loading') {
-    return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
-        <div className="max-w-md w-full bg-white rounded-lg shadow-md p-8 text-center">
-          <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin" />
-          <h2 className="text-xl font-semibold text-gray-700">Verificando seu email...</h2>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
       <div className="max-w-md w-full bg-white rounded-lg shadow-md p-8 text-center">
+        {status === 'loading' && (
+          <div className="flex flex-col items-center gap-4">
+            <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin" />
+            <h2 className="text-xl font-semibold text-gray-700">Verificando seu email...</h2>
+          </div>
+        )}
+
         {status === 'success' && (
           <div className="flex flex-col items-center gap-4">
             <CheckCircle2 className="w-16 h-16 text-green-500" />

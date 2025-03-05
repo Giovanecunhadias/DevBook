@@ -1,7 +1,7 @@
 'use client'; // Indicando que o componente é do lado do cliente
 
 import { useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { verifyEmail } from './actions';
 import { CheckCircle2, XCircle } from 'lucide-react';
 import Link from 'next/link';
@@ -31,7 +31,8 @@ export default function VerifyEmailPage() {
   }, [token, email]);
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+    <Suspense>
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
       <div className="max-w-md w-full bg-white rounded-lg shadow-md p-8 text-center">
         {status === 'loading' && (
           <div className="flex flex-col items-center gap-4">
@@ -68,6 +69,8 @@ export default function VerifyEmailPage() {
           </div>
         )}
       </div>
-    </div>
+    </div>  
+    </Suspense>
+    
   );
 }

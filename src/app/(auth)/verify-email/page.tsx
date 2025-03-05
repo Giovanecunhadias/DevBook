@@ -1,7 +1,7 @@
-'use client';
+'use client'; // Indicando que o componente é do lado do cliente
 
 import { useSearchParams } from 'next/navigation';
-import { useEffect, useState, Suspense } from 'react';
+import { useEffect, useState } from 'react';
 import { verifyEmail } from './actions';
 import { CheckCircle2, XCircle } from 'lucide-react';
 import Link from 'next/link';
@@ -14,21 +14,20 @@ export default function VerifyEmailPage() {
   const [message, setMessage] = useState('');
 
   useEffect(() => {
-    if (!token || !email) {
+    if (token && email) {
+      verifyEmail(token, email)
+        .then((result) => {
+          setStatus(result.success ? 'success' : 'error');
+          setMessage(result.message || '');
+        })
+        .catch(() => {
+          setStatus('error');
+          setMessage('Erro ao verificar email');
+        });
+    } else {
       setStatus('error');
-      setMessage('Link inválido ou incompleto');
-      return;
+      setMessage('Link inválido');
     }
-
-    verifyEmail(token, email)
-      .then((result) => {
-        setStatus(result.success ? 'success' : 'error');
-        setMessage(result.message || '');
-      })
-      .catch(() => {
-        setStatus('error');
-        setMessage('Erro ao verificar email');
-      });
   }, [token, email]);
 
   return (
@@ -72,7 +71,3 @@ export default function VerifyEmailPage() {
     </div>
   );
 }
-
-VerifyEmailPage.getLayout = (page: React.ReactNode) => (
-  <Suspense fallback={<div>Loading...</div>}>{page}</Suspense>
-);

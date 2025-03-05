@@ -14,20 +14,21 @@ export default function VerifyEmailPage() {
   const [message, setMessage] = useState('');
 
   useEffect(() => {
-    if (token && email) {
-      verifyEmail(token, email)
-        .then((result) => {
-          setStatus(result.success ? 'success' : 'error');
-          setMessage(result.message || '');
-        })
-        .catch(() => {
-          setStatus('error');
-          setMessage('Erro ao verificar email');
-        });
-    } else {
+    if (!token || !email) {
       setStatus('error');
-      setMessage('Link inválido');
+      setMessage('Link inválido ou incompleto');
+      return;
     }
+
+    verifyEmail(token, email)
+      .then((result) => {
+        setStatus(result.success ? 'success' : 'error');
+        setMessage(result.message || '');
+      })
+      .catch(() => {
+        setStatus('error');
+        setMessage('Erro ao verificar email');
+      });
   }, [token, email]);
 
   return (

@@ -1,7 +1,8 @@
-import RegisterForm from "../register/register-form"
+
+import VerifyEmailFormPage from "./verify"
+
 export default function VerifyEmailPage() {
   return <>
-  <RegisterForm/>
-  <h1>d</h1>
+  <VerifyEmailFormPage/>
   </>  
 }

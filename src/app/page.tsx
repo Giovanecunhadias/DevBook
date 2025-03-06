@@ -12,7 +12,7 @@ export default function Home() {
       <div className="flex items-start justify-start w-full">
         <div className="flex gap-2 items-center w-full">
           <img src="/logo2.png"  className="w-12 h-12" alt="" />
-          <p className="text-5xl">Dev Book</p>
+          <p className="text-2xl">Dev Book</p>
         </div>
         
         

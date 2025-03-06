@@ -103,7 +103,7 @@ export default function Nav() {
           )}
           {session && (
             <>
-              <Link href="/profile">
+              <Link href="home/profile">
                 <button className="flex items-center rounded-3xl bg-blue-500 text-white p-2 hover:cursor-pointer hover:opacity-90">
                   <User size={18} />
                   Perfil

@@ -6,13 +6,10 @@ export default function HomeLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR">
-      <body
-        className={` antialiased`}
-      >
-        <Nav></Nav>
-        {children}
-      </body>
-    </html>
+    
+  <>
+      <Nav/>
+      {children}
+      </>
   );
 }

@@ -62,7 +62,7 @@ export default async function registerAction(formData: FormData) {
         await sendVerificationEmail(data.email, verificationToken);
 
         return {
-            message: 'Registro concluído! Por favor, verifique seu e-mail para confirmar sua conta.',
+            message: 'Registro concluído! Por favor, verifique seu e-mail para confirmar sua conta',
             success: true,
         };
     } catch (error) {

@@ -6,5 +6,5 @@ import { randomBytes } from 'crypto';
  */
 export function createVerificationToken(): string {
     // Gera um token aleatório de 32 bytes e converte para hexadecimal
-    return randomBytes(32).toString('hex');
+    return randomBytes(90).toString('hex');
 }

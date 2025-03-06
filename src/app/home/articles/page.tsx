@@ -15,7 +15,7 @@ export default async  function articles(){
     return(
         <div className="flex w-full justify-center items-center text-black p-4">
             <div className="flex flex-col">
-                <div className="rounded-md p-2 bg-white ">
+              
                     {posts.map((post) => (
                         <div className="flex flex-col rounded-md w-[40vw] p-2 bg-white " key={post.id} >
                             <div className="flex  gap-1 items-center justify-start w-full"><User size={40}/>{post.user?.name ||'Anonymous'}</div>
@@ -28,7 +28,7 @@ export default async  function articles(){
                             
                         </div>
                     ))}
-                </div>
+              
             </div>
         </div>
         

@@ -38,4 +38,16 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 Features pra Março:
 Criação de artigos
 Música integrada dentro do site
+Comentários e Curtidas
+Chamadas em grupo
+Chamadas individuais
+
+Features pra Abril:
+Envio de mensagens de viusalizção única
+Carteira de Cripto
+
+
+Projeto Geral:
+março: 
+Aplicação Mobile Nativo Java;
 

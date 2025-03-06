@@ -21,21 +21,23 @@ export default function RegisterForm() {
    
 
       // Passa o formData para o formAction dentro do contexto correto
-        await formAction(formData);
+        
+     formAction(formData);
     
   };
 
   return (
     <>
-      {state?.success === false && (
-        <p className="text-red-500">{state?.message}</p>
-      )}
+      
 
       <Form action={formAction} className="flex flex-col bg-blue-500 rounded-md p-4 w-[25vw] font-bold border-indigo-700 gap-[0.2rem]" onSubmit={(e) => {
         e.preventDefault(); // Evita o comportamento padrão do formulário
         const formData = new FormData(e.target as HTMLFormElement);
         handleSubmit(formData); // Envia os dados do formulário com a imagem
       }}>
+        {state?.success === false && (
+          <p className="text-red-500">{state?.error}</p>
+        )}
         <label htmlFor="name">Nome:</label>
         <input name="name" id="name" className={styleInput} type="text" required />
 
@@ -47,7 +49,9 @@ export default function RegisterForm() {
 
         <label htmlFor="password">Senha:</label>
         <input name="password" id="password" className={styleInput} type="password" minLength={8} required />
-        
+        {state?.success === true && (
+          <p className="text-green-500">{state?.message}</p>
+        )}
         <button
           type="submit"
           disabled={isPending }

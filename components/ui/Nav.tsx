@@ -11,7 +11,7 @@ export default function Nav() {
   const [open, setOpen] = useState(false);
   const [session, setSession] = useState(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const links = ["Articles", "Products"];
+  const links = ["Articles", "Products", "Novo Artigo"];
   const languages = ["javascript", "java", "python", "ruby", "c++", "c#", ""];
 
   useEffect(() => {
@@ -53,7 +53,7 @@ export default function Nav() {
         {links.map((link) => (
           <Link
             key={link}
-            href={`/${link === "Articles" ? "home/articles" : link.toLowerCase()}`}
+            href={`/${link === "Articles" ? "home/articles" : link === "Novo Artigo" ? "home/articles/newarticle" : link.toLowerCase()}`}
           >
             {link}
           </Link>
@@ -103,7 +103,7 @@ export default function Nav() {
           )}
           {session && (
             <>
-              <Link href="home/profile">
+              <Link href="/home/profile">
                 <button className="flex items-center rounded-3xl bg-blue-500 text-white p-2 hover:cursor-pointer hover:opacity-90">
                   <User size={18} />
                   Perfil

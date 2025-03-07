@@ -4,7 +4,7 @@ import {User} from "lucide-react"
 
 
 export default function Home() {
-  const links = ["Home", "About", "Contact", "Products"];
+  const links = [""];
   return (
     <>
     {/*Nav bar */}
